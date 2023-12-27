@@ -4,9 +4,13 @@ A simple plugin for neovim that makes some checks and display a warning message 
 
 ## Setup
 
+### Dependencies
+
+- plenary.nvim
+
 ### Configuration
 
-- `cutoff_days = <N>`: displays a message if the current repository is "dirty" (files uncommitted) and the latest commit is older than N days
+- `cutoff_days = <N>`: displays a message on startup if the current repository is "dirty" (files uncommitted) and the latest commit is older than N days
 
 ### With lazy.nvim
 
@@ -19,6 +23,20 @@ A simple plugin for neovim that makes some checks and display a warning message 
       cutoff_days = 5, 
     })
   end,
+}
+```
+
+### With packer.nvim
+
+```lua
+use {
+    'waltr-fr/redalert.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        require("redalert").setup({
+            cutoff_days = 5,
+        })
+    end,
 }
 ```
 
